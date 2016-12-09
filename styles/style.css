@@ -83,7 +83,6 @@ h1{
 .wordInput{
 	width: 80%;
 	border: 2px solid black;
-	height: 28%;
 	margin: 0 auto;
 }
 
@@ -108,7 +107,6 @@ a{
 .wordOutput{
 	width: 80%;
 	border: 2px solid black;
-	height: 40%;
 	margin: 0 auto;
 }
 
