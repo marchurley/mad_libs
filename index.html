@@ -11,12 +11,9 @@
 		
 		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-
-		<!-- Angular -->
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	</head>
 
-	<body ng-app="">
+	<body ng-app="myApp">
 		<header class="masthead">
 			<div class="mastheadLogo">
 				<div class="smileyLogo"></div>
@@ -50,17 +47,20 @@
 			</div>
 		</section>
 		
-		<section class="wordOutput">
+		<section class="wordOutput" ng-controller="MyCtrl">
 			<div class="finalText" ng-switch="gender">
 				<p>{{maleName}} was a {{jobTitle}} who loved technology. Although<span ng-switch-when="male"> he </span><span ng-switch-when="female"> she </span>loved parts of<span ng-switch-when="male"> his </span><span ng-switch-when="female"> her </span>job,<span ng-switch-when="male"> he </span><span ng-switch-when="female"> she </span>absolutely hated {{tediousTask}} and {{dirtyTask}}. So,<span ng-switch-when="male"> he </span><span ng-switch-when="female"> she </span>met with<span ng-switch-when="male"> his </span><span ng-switch-when="female"> her </span>life mentor {{celebrity}} who told<span ng-switch-when="male"> him </span><span ng-switch-when="female"> her </span>to learn with something new.<span ng-switch-when="male"> He </span><span ng-switch-when="female"> She </span>didn't find a course on {{uselessSkill}} so<span ng-switch-when="male"> he </span><span ng-switch-when="female"> she </span>studied programming instead.</p>
 				<p>What a great decision! With<span ng-switch-when="male"> his </span><span ng-switch-when="female"> her </span>new skills, {{maleName}} built a(n) {{adjective}} robot named {{obnoxiousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} times faster.</p>
 			</div>
+			<div>Version: {{version}}</div>
+			<div>Version2: {{version2}}</div>
 		</section>
 
 		
 		<!-- JavaScript -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script type="text/javascript" src="js/app.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script type="text/javascript" src="js/myApp.js"></script>
 
 	</body> 
 
