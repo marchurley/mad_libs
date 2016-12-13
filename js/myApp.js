@@ -4,5 +4,5 @@ angular.module('myApp', [])
     $rootScope.version = VERSION;
 	})
     .controller('MyCtrl', function($scope) { // With controller I use for logical blocks of code to inject on certain tags
-        $scope.gender = ['he', 'him', 'his', 'He'];
+        this.gender = ['he', 'him', 'his', 'He'];
     }); // ; only after the chaining is finished. No ; before that
