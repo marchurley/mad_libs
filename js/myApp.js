@@ -7,8 +7,14 @@ angular.module('myApp', [])
     	// One solution to this is to have the array for each gender mapped to a singular key, and put the key in the radio
     	// radio button HTML
     	$scope.genderHash = {
-    		male: [],
-    		female: []
+    		"male": [],
+    		"female": []
     	}
-        $scope.gender = ['he', 'him', 'his', 'He'];
+    	// if statement that changes the array value used based upon the 
+    	// value of the model.  The chosenPronouns array will be updated 
+    	// from the scope.genderHash and the finalText element will switch
+    	// back & forth
+    	$scope.chosenPronouns = ['he', 'him', 'his', 'He'];
     }); // ; only after the chaining is finished. No ; before that
+
+
