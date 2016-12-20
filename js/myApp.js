@@ -1,4 +1,4 @@
-angular.module('myApp', ['ngMessages']) // inject ngmessages-module
+angular.module('myApp', ['ngMessages']) // inject ngmessages-module as dependency
     .constant('VERSION', '2.0')
     .run(function(VERSION, $rootScope) { // With run I inject the scope into the rootScope = everywhere
 	    $rootScope.version = VERSION;
@@ -18,9 +18,11 @@ angular.module('myApp', ['ngMessages']) // inject ngmessages-module
             if( $scope.userInputForm.$valid ) {
                 console.log('The form is valid');
                 this.inputValidated = true;
+                this.inputComplete = false;
             } else {
                 console.log('The form is invalid');
                 this.inputValidated = false;
+                this.inputComplete = true;
             }
         }
 

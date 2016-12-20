@@ -28,35 +28,71 @@
 			<h1>Provide the following words:</h1>
 			<form name="userInputForm" novalidate ng-submit="vm.submit()">
 				<div class="inputLines">
-					<input type="text" name="maleName" placeholder="Male name" ng-model="maleName" required>
-					<input type="text" name="dirtyTask" placeholder="Dirty task" ng-model="dirtyTask" required>
-					<input type="text" name="obnoxiousCelebrity" placeholder="Obnoxious celebrity" ng-model="obnoxiousCelebrity" required>
-
-					<div ng-messages="userInputForm.name.$error">
-			        	<p ng-message="minlength">Your name is too short.</p>
-			        	<p ng-message="maxlength">Your name is too long.</p>
-			        	<p ng-message="required">Your name is required.</p>
+					<input type="text" name="name" placeholder="Name" ng-model="name" required>
+					<div ng-messages="userInputForm.$submitted && userInputForm.name.$error">
+			       		<p ng-message="required">Enter a name</p>
 			   		</div>
 
+					<input type="text" name="dirtyTask" placeholder="Dirty task" ng-model="dirtyTask" required>
+					<div ng-messages="userInputForm.$submitted && userInputForm.dirtyTask.$error">
+			       		<p ng-message="required">Enter a dirty task</p>
+			   		</div>
+
+					<input type="text" name="obnoxiousCelebrity" placeholder="Obnoxious celebrity" ng-model="obnoxiousCelebrity" required>
+					<div ng-messages="userInputForm.$submitted && userInputForm.obnoxiousCelebrity.$error">
+			       		<p ng-message="required">Enter an obnoxious celebrity</p>
+			   		</div>					
 				</div>
+
 				<div class="inputLines">
 					<input type="text" name="jobTitle" placeholder="Job title" ng-model="jobTitle" required>
+					<div ng-messages="userInputForm.$submitted && userInputForm.jobTitle.$error">
+			       		<p ng-message="required">Enter a job title</p>
+			   		</span>
+
 					<input type="text" name="celebrity" placeholder="Celebrity" ng-model="celebrity" required>
-					<input type="text" name="hugeNumber" placeholder="Huge number" ng-model="hugeNumber" required>
+					<div ng-messages="userInputForm.$submitted && userInputForm.celebrity.$error">
+			       		<p ng-message="required">Enter a celebrity</p>
+			   		</div>
+
+					<input type="number" name="hugeNumber" placeholder="Huge number" ng-model="hugeNumber" required>
+					<div ng-messages="userInputForm.$submitted && userInputForm.hugeNumber.$error">
+			       		<p ng-message="required">Enter a huge number</p>
+			   		</div>
 				</div>
 				<div class="inputLines">
 					<input type="text" name="tediousTask" placeholder="Tedious task" ng-model="tediousTask" required>
+					<div ng-messages="userInputForm.$submitted && userInputForm.tediousTask.$error">
+			       		<p ng-message="required">Enter a tedious task</p>
+			   		</div>
+
 					<input type="text" name="uselessSkill" placeholder="Useless skill" ng-model="uselessSkill" required>
+					<div ng-messages="userInputForm.$submitted && userInputForm.uselessSkill.$error">
+			       		<p ng-message="required">Enter a useless skill</p>
+			   		</div>
+
 					<input type="text" name="adjective" placeholder="Adjective" ng-model="adjective" required>
+					<div ng-messages="userInputForm.$submitted && userInputForm.adjective.$error">
+			       		<p ng-message="required">Enter an adjective</p>
+			   		</div>					
 				</div>
 				<div class="inputGender">
-	      			<input type="radio" ng-click="vm.check(gender)" ng-model="gender" value="male" required>Male
-	      			<input type="radio" ng-click="vm.check(gender)" ng-model="gender" value="female" required>Female
+	      			<input type="radio" name="maleFemale" ng-click="vm.check(gender)" ng-model="gender" value="male" required>Male
+	      			<input type="radio" name="maleFemale" ng-click="vm.check(gender)" ng-model="gender" value="female" required>Female
+					<div ng-messages="userInputForm.$submitted && userInputForm.maleFemale.$error">
+			       		<p ng-message="required" id="genderError">Select a gender</p>
+			   		</div>	      			
 				</div>
+
+				
+				<!--<div class="errorMessage" ng-show="vm.inputComplete">
+			       	<p>Please fill out all fields</p>
+			   	</div>-->
 
 				<div>
 					<hr>
 				</div>
+
 
 				<div class="buttonWrapper">
 					<button type="submit" class="generateLib">Generate My Mad Lib</button>
