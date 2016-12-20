@@ -26,32 +26,54 @@
 
 		<section class="wordInput">
 			<h1>Provide the following words:</h1>
-			<div class="inputLines">
-				<input type="text" name="maleName" placeholder="Male name" ng-model="maleName">
-				<input type="text" name="dirtyTask" placeholder="Dirty task" ng-model="dirtyTask">
-				<input type="text" name="obnoxiousCelebrity" placeholder="Obnoxious celebrity" ng-model="obnoxiousCelebrity">
-			</div>
-			<div class="inputLines">
-				<input type="text" name="jobTitle" placeholder="Job title" ng-model="jobTitle">
-				<input type="text" name="celebrity" placeholder="Celebrity" ng-model="celebrity">
-				<input type="text" name="hugeNumber" placeholder="Huge number" ng-model="hugeNumber">
-			</div>
-			<div class="inputLines">
-				<input type="text" name="tediousTask" placeholder="Tedious task" ng-model="tediousTask">
-				<input type="text" name="uselessSkill" placeholder="Useless skill" ng-model="uselessSkill">
-				<input type="text" name="adjective" placeholder="Adjective" ng-model="adjective">
-			</div>
-			<div class="inputGender">
-      			<input type="radio" ng-click="vm.check(gender)" ng-model="gender" value="male">Male
-      			<input type="radio" ng-click="vm.check(gender)" ng-model="gender" value="female">Female
-			</div>
+			<form name="userInputForm" novalidate ng-submit="vm.submit()">
+				<div class="inputLines">
+					<input type="text" name="maleName" placeholder="Male name" ng-model="maleName" required>
+					<input type="text" name="dirtyTask" placeholder="Dirty task" ng-model="dirtyTask" required>
+					<input type="text" name="obnoxiousCelebrity" placeholder="Obnoxious celebrity" ng-model="obnoxiousCelebrity" required>
+
+					<div ng-messages="userInputForm.name.$error">
+			        	<p ng-message="minlength">Your name is too short.</p>
+			        	<p ng-message="maxlength">Your name is too long.</p>
+			        	<p ng-message="required">Your name is required.</p>
+			   		</div>
+
+				</div>
+				<div class="inputLines">
+					<input type="text" name="jobTitle" placeholder="Job title" ng-model="jobTitle" required>
+					<input type="text" name="celebrity" placeholder="Celebrity" ng-model="celebrity" required>
+					<input type="text" name="hugeNumber" placeholder="Huge number" ng-model="hugeNumber" required>
+				</div>
+				<div class="inputLines">
+					<input type="text" name="tediousTask" placeholder="Tedious task" ng-model="tediousTask" required>
+					<input type="text" name="uselessSkill" placeholder="Useless skill" ng-model="uselessSkill" required>
+					<input type="text" name="adjective" placeholder="Adjective" ng-model="adjective" required>
+				</div>
+				<div class="inputGender">
+	      			<input type="radio" ng-click="vm.check(gender)" ng-model="gender" value="male" required>Male
+	      			<input type="radio" ng-click="vm.check(gender)" ng-model="gender" value="female" required>Female
+				</div>
+
+				<div>
+					<hr>
+				</div>
+
+				<div class="buttonWrapper">
+					<button type="submit" class="generateLib">Generate My Mad Lib</button>
+				</div>
+			</form>
 		</section>
+
 		
-		<section class="wordOutput">
+		<section class="wordOutput" ng-show="vm.inputValidated">
 			<div class="finalText">
 				<p>{{maleName}} was a {{jobTitle}} who loved technology. Although {{vm.chosenPronouns[0]}} loved parts of {{vm.chosenPronouns[2]}} job, {{vm.chosenPronouns[0]}} absolutely hated {{tediousTask}} and {{dirtyTask}}. So, {{vm.chosenPronouns[0]}} met with {{vm.chosenPronouns[2]}} life mentor {{celebrity}} who told {{vm.chosenPronouns[1]}} to learn something new. {{vm.chosenPronouns[3]}} didn't find a course on {{uselessSkill}} so {{vm.chosenPronouns[0]}} studied programming instead.</p>
 				<p>What a great decision! With {{vm.chosenPronouns[2]}} new skills, {{maleName}} built a(n) {{adjective}} robot named {{obnoxiousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} times faster.</p>
 			</div>
+			<div class="buttonWrapper">
+				<button class="startOver">Start Over</button>				
+			</div>
+
 			<div>Version: {{version}}</div>
 		</section>
 
@@ -60,7 +82,10 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 		<script type="text/javascript" src="js/myApp.js"></script>
+		<!-- Load the angular-messages module and add in .js application as dependency -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
 
+		
 	</body> 
 
 </html>

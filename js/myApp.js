@@ -1,4 +1,4 @@
-angular.module('myApp', [])
+angular.module('myApp', ['ngMessages']) // inject ngmessages-module
     .constant('VERSION', '2.0')
     .run(function(VERSION, $rootScope) { // With run I inject the scope into the rootScope = everywhere
 	    $rootScope.version = VERSION;
@@ -13,6 +13,17 @@ angular.module('myApp', [])
             this.chosenPronouns = ['she', 'her', 'her', 'She'];
             }  
         }
+
+        this.submit = function(){
+            if( $scope.userInputForm.$valid ) {
+                console.log('The form is valid');
+                this.inputValidated = true;
+            } else {
+                console.log('The form is invalid');
+                this.inputValidated = false;
+            }
+        }
+
     });
 
 

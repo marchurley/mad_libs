@@ -96,9 +96,16 @@ input, .genderText, .inputGender{
 	font-size: 1.3em;
 }
 
-a{
-	margin: 0 1em;
+button {
+	float: right;
+	font-size: 1.2em;
+	margin: 1em;
 }
+
+.buttonWrapper{
+	overflow: hidden;
+}
+
 
 /*---------------------------------------------------------------------------------
    WORD OUTPUT
@@ -120,3 +127,4 @@ a{
 p {
 	margin-bottom: 0.5em;
 }
+
