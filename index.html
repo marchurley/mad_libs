@@ -24,66 +24,65 @@
 			</div>
 		</header>
 
-		<section class="wordInput">
+		<section class="wordInput" ng-show="vm.firstScreen">
 			<h1>Provide the following words:</h1>
-			<form name="userInputForm" novalidate ng-submit="vm.submit()">
+			<form name="vm.userInputForm" novalidate ng-submit="vm.submit()">
 				<div class="inputLines">
-					<input type="text" name="name" placeholder="Name" ng-model="name" required>
-					<div ng-messages="userInputForm.$submitted && userInputForm.name.$error">
-			       		<p ng-message="required">Enter a name</p>
+					<input type="text" name="name" placeholder="Name" ng-model="vm.name" required>
+					<div ng-messages="vm.userInputForm.$submitted && vm.userInputForm.name.$error">
+			       		<p ng-message="required" class="error">Enter a name</p>
 			   		</div>
 
 					<input type="text" name="dirtyTask" placeholder="Dirty task" ng-model="dirtyTask" required>
-					<div ng-messages="userInputForm.$submitted && userInputForm.dirtyTask.$error">
-			       		<p ng-message="required">Enter a dirty task</p>
+					<div ng-messages="vm.userInputForm.$submitted && vm.userInputForm.dirtyTask.$error">
+			       		<p ng-message="required" class="error">Enter a dirty task</p>
 			   		</div>
 
 					<input type="text" name="obnoxiousCelebrity" placeholder="Obnoxious celebrity" ng-model="obnoxiousCelebrity" required>
-					<div ng-messages="userInputForm.$submitted && userInputForm.obnoxiousCelebrity.$error">
-			       		<p ng-message="required">Enter an obnoxious celebrity</p>
+					<div ng-messages="vm.userInputForm.$submitted && vm.userInputForm.obnoxiousCelebrity.$error">
+			       		<p ng-message="required" class="error">Enter an obnoxious celebrity</p>
 			   		</div>					
 				</div>
 
 				<div class="inputLines">
 					<input type="text" name="jobTitle" placeholder="Job title" ng-model="jobTitle" required>
-					<div ng-messages="userInputForm.$submitted && userInputForm.jobTitle.$error">
-			       		<p ng-message="required">Enter a job title</p>
+					<div ng-messages="vm.userInputForm.$submitted && vm.userInputForm.jobTitle.$error">
+			       		<p ng-message="required" class="error">Enter a job title</p>
 			   		</span>
 
 					<input type="text" name="celebrity" placeholder="Celebrity" ng-model="celebrity" required>
-					<div ng-messages="userInputForm.$submitted && userInputForm.celebrity.$error">
-			       		<p ng-message="required">Enter a celebrity</p>
+					<div ng-messages="vm.userInputForm.$submitted && vm.userInputForm.celebrity.$error">
+			       		<p ng-message="required" class="error">Enter a celebrity</p>
 			   		</div>
 
 					<input type="number" name="hugeNumber" placeholder="Huge number" ng-model="hugeNumber" required>
-					<div ng-messages="userInputForm.$submitted && userInputForm.hugeNumber.$error">
-			       		<p ng-message="required">Enter a huge number</p>
+					<div ng-messages="vm.userInputForm.$submitted && vm.userInputForm.hugeNumber.$error">
+			       		<p ng-message="required" class="error">Enter a huge number</p>
 			   		</div>
 				</div>
 				<div class="inputLines">
 					<input type="text" name="tediousTask" placeholder="Tedious task" ng-model="tediousTask" required>
-					<div ng-messages="userInputForm.$submitted && userInputForm.tediousTask.$error">
-			       		<p ng-message="required">Enter a tedious task</p>
+					<div ng-messages="vm.userInputForm.$submitted && vm.userInputForm.tediousTask.$error">
+			       		<p ng-message="required" class="error">Enter a tedious task</p>
 			   		</div>
 
 					<input type="text" name="uselessSkill" placeholder="Useless skill" ng-model="uselessSkill" required>
-					<div ng-messages="userInputForm.$submitted && userInputForm.uselessSkill.$error">
-			       		<p ng-message="required">Enter a useless skill</p>
+					<div ng-messages="vm.userInputForm.$submitted && vm.userInputForm.uselessSkill.$error">
+			       		<p ng-message="required" class="error">Enter a useless skill</p>
 			   		</div>
 
 					<input type="text" name="adjective" placeholder="Adjective" ng-model="adjective" required>
-					<div ng-messages="userInputForm.$submitted && userInputForm.adjective.$error">
-			       		<p ng-message="required">Enter an adjective</p>
+					<div ng-messages="vm.userInputForm.$submitted && vm.userInputForm.adjective.$error">
+			       		<p ng-message="required" class="error">Enter an adjective</p>
 			   		</div>					
 				</div>
 				<div class="inputGender">
 	      			<input type="radio" name="maleFemale" ng-click="vm.check(gender)" ng-model="gender" value="male" required>Male
 	      			<input type="radio" name="maleFemale" ng-click="vm.check(gender)" ng-model="gender" value="female" required>Female
-					<div ng-messages="userInputForm.$submitted && userInputForm.maleFemale.$error">
-			       		<p ng-message="required" id="genderError">Select a gender</p>
+					<div ng-messages="vm.userInputForm.$submitted && vm.userInputForm.maleFemale.$error">
+			       		<p ng-message="required" class="error">Select a gender</p>
 			   		</div>	      			
 				</div>
-
 				
 				<!--<div class="errorMessage" ng-show="vm.inputComplete">
 			       	<p>Please fill out all fields</p>
@@ -102,12 +101,12 @@
 
 		
 		<section class="wordOutput" ng-show="vm.inputValidated">
-			<div class="finalText">
-				<p>{{maleName}} was a {{jobTitle}} who loved technology. Although {{vm.chosenPronouns[0]}} loved parts of {{vm.chosenPronouns[2]}} job, {{vm.chosenPronouns[0]}} absolutely hated {{tediousTask}} and {{dirtyTask}}. So, {{vm.chosenPronouns[0]}} met with {{vm.chosenPronouns[2]}} life mentor {{celebrity}} who told {{vm.chosenPronouns[1]}} to learn something new. {{vm.chosenPronouns[3]}} didn't find a course on {{uselessSkill}} so {{vm.chosenPronouns[0]}} studied programming instead.</p>
-				<p>What a great decision! With {{vm.chosenPronouns[2]}} new skills, {{maleName}} built a(n) {{adjective}} robot named {{obnoxiousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} times faster.</p>
+			<div class="finalTextWrapper">
+				<p class="finalText">{{vm.name}} was a {{jobTitle}} who loved technology. Although {{vm.chosenPronouns[0]}} loved parts of {{vm.chosenPronouns[2]}} job, {{vm.chosenPronouns[0]}} absolutely hated {{tediousTask}} and {{dirtyTask}}. So, {{vm.chosenPronouns[0]}} met with {{vm.chosenPronouns[2]}} life mentor {{celebrity}} who told {{vm.chosenPronouns[1]}} to learn something new. {{vm.chosenPronouns[3]}} didn't find a course on {{uselessSkill}} so {{vm.chosenPronouns[0]}} studied programming instead.</p>
+				<p class="finalText">What a great decision! With {{vm.chosenPronouns[2]}} new skills, {{maleName}} built a(n) {{adjective}} robot named {{obnoxiousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} times faster.</p>
 			</div>
 			<div class="buttonWrapper">
-				<button class="startOver">Start Over</button>				
+				<button ng-click="vm.startOver()" class="startOver">Start Over</button>				
 			</div>
 
 			<div>Version: {{version}}</div>

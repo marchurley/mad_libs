@@ -106,14 +106,14 @@ button {
 	overflow: hidden;
 }
 
-/*.errorMessage{
+/*.error{
 	text-align: center;
 	font: 'Open Sans', sans-serif;
 	font-size: 1.5em;
 	color: red;
 }*/
 
-p, #genderError {
+.error, #genderError {
 	font-size: 0.8em;
 	font-style: italic;
 	color: red;
@@ -129,7 +129,7 @@ p, #genderError {
 	margin: 0 auto;
 }
 
-.finalText{
+.finalTextWrapper{
 	font: 'Open Sans', sans-serif;
 	font-size: 1.5em;	
 	margin: 3em;

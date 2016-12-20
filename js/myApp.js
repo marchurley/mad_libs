@@ -13,17 +13,33 @@ angular.module('myApp', ['ngMessages']) // inject ngmessages-module as dependenc
             this.chosenPronouns = ['she', 'her', 'her', 'She'];
             }  
         }
+       
+        this.firstScreen = true;
 
         this.submit = function(){
-            if( $scope.userInputForm.$valid ) {
-                console.log('The form is valid');
+            if( this.userInputForm.$valid ) {
                 this.inputValidated = true;
                 this.inputComplete = false;
+                this.firstScreen = false;
             } else {
-                console.log('The form is invalid');
                 this.inputValidated = false;
                 this.inputComplete = true;
             }
+        }
+
+        this.startOver = function(){
+            this.firstScreen = true;
+            this.inputValidated = false; 
+            this.name =""; // this. -> I need to put vm. infront of every version
+            $scope.dirtyTask =""; // $scope. -> I only need to put it here
+            $scope.obnoxiousCelebrity ="";
+            $scope.jobTitle ="";
+            $scope.celebrity ="";
+            $scope.hugeNumber ="";
+            $scope.tediousTask ="";
+            $scope.uselessSkill ="";
+            $scope.adjective ="";
+            this.userInputForm.$setPristine(); // I could have just put $scope in front without having to add .vm everywhere in html code
         }
 
     });
