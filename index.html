@@ -13,7 +13,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	</head>
 
-	<body ng-app="myApp" ng-controller="MyCtrl">
+	<body ng-app="myApp" ng-controller="MyCtrl as vm">
 		<header class="masthead">
 			<div class="mastheadLogo">
 				<div class="smileyLogo"></div>
@@ -42,15 +42,15 @@
 				<input type="text" name="adjective" placeholder="Adjective" ng-model="adjective">
 			</div>
 			<div class="inputGender">
-      			<input type="radio" ng-model="gender" value="['he', 'him', 'his', 'He']">Male
-      			<input type="radio" ng-model="gender" value="['she', 'her', 'her', 'She']">Female
+      			<input type="radio" ng-click="vm.check(gender)" ng-model="gender" value="male">Male
+      			<input type="radio" ng-click="vm.check(gender)" ng-model="gender" value="female">Female
 			</div>
 		</section>
 		
 		<section class="wordOutput">
-			<div class="finalText" ng-switch="gender">
-				<p>{{maleName}} was a {{jobTitle}} who loved technology. Although {{gender[0]}} loved parts of {{gender[2]}} job, {{gender[0]}} absolutely hated {{tediousTask}} and {{dirtyTask}}. So, {{gender[0]}} met with {{gender[2]}} life mentor {{celebrity}} who told {{gender[1]}} to learn something new. {{gender[3]}} didn't find a course on {{uselessSkill}} so {{gender[0]}} studied programming instead.</p>
-				<p>What a great decision! With {{gender[2]}} new skills, {{maleName}} built a(n) {{adjective}} robot named {{obnoxiousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} times faster.</p>
+			<div class="finalText">
+				<p>{{maleName}} was a {{jobTitle}} who loved technology. Although {{vm.chosenPronouns[0]}} loved parts of {{vm.chosenPronouns[2]}} job, {{vm.chosenPronouns[0]}} absolutely hated {{tediousTask}} and {{dirtyTask}}. So, {{vm.chosenPronouns[0]}} met with {{vm.chosenPronouns[2]}} life mentor {{celebrity}} who told {{vm.chosenPronouns[1]}} to learn something new. {{vm.chosenPronouns[3]}} didn't find a course on {{uselessSkill}} so {{vm.chosenPronouns[0]}} studied programming instead.</p>
+				<p>What a great decision! With {{vm.chosenPronouns[2]}} new skills, {{maleName}} built a(n) {{adjective}} robot named {{obnoxiousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} times faster.</p>
 			</div>
 			<div>Version: {{version}}</div>
 		</section>
