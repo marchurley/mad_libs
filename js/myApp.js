@@ -1,4 +1,4 @@
-angular.module('myApp', ['ngMessages']) // inject ngmessages-module as dependency
+angular.module('myApp', ['ngMessages', 'ngAnimate']) // inject ngmessages-module & ng-animate-module as dependency
     .constant('VERSION', '2.0')
     .run(function(VERSION, $rootScope) { // With run I inject the scope into the rootScope = everywhere
 	    $rootScope.version = VERSION;
